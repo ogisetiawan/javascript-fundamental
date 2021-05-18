@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,30 +8,28 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.83.1">
   <title>Javascript - Fundamental</title>
-
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/sidebars.css" rel="stylesheet">
 </head>
+
 <body>
   <main>
-    <h1 class="visually-hidden">Sidebars examples</h1>
+    <!-- //@ SIDEBAR -->
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
       <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
         <svg class="bi me-2" width="30" height="24">
           <use xlink:href="#bootstrap" />
         </svg>
-        <span class="fs-5 fw-semibold">Collapsible</span>
+        <span class="fs-5 fw-semibold">JS Fundamental</span>
       </a>
       <ul class="list-unstyled ps-0">
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-            data-bs-target="#home-collapse" aria-expanded="true">
-            Home
-          </button>
-          <div class="collapse show" id="home-collapse">
+            data-bs-target="#js-tutorial" aria-expanded="true"> Home </button>
+          <div class="collapse show" id="js-tutorial">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark rounded">Overview</a></li>
+              <li><a href="javascript:void(0);" onclick="introload()" class="link-dark rounded">Introduction</a></li>
               <li><a href="#" class="link-dark rounded">Updates</a></li>
               <li><a href="#" class="link-dark rounded">Reports</a></li>
             </ul>
@@ -81,10 +80,27 @@
         </li>
       </ul>
     </div>
+    
     <div class="b-example-divider"></div>
+
+    <!-- //@ CONTENT -->
+    <div class="container" id="container">
+      <h1>Bootstrap grid examples</h1>
+    </div>
   </main>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/sidebars.js"></script>
+  <script>
+    // 
+    function introload() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'test.html');
+      xhr.onload = function () {
+        document.getElementById("container").innerHTML = this.response;
+      };
+      xhr.send();
+    }
+  </script>
 </body>
 
 </html>
