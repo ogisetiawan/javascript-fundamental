@@ -112,3 +112,6 @@ li.nav-item {
   border-radius: .25rem;
   padding: .5rem 1rem;
 }
+@media screen and (max-width: 990px) {
+
+}
