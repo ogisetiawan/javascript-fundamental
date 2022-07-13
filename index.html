@@ -12,9 +12,16 @@
   <link href="assets/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/css/monokai-sublime.min.css" rel="stylesheet">
   <link href="assets/css/sidebars.css" rel="stylesheet">
+  <style>
+    .demo {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #f8f9fa;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-light">
   <!-- //@ SIDEBAR -->
   <nav class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column collapse " id="sidebar">
     <ul class="nav nav-pills flex-column text-white w-100 mb-auto">
@@ -25,13 +32,13 @@
         <a class="nav-link" href="#">JS Tutorial<i class="bx bx-caret-down"></i></a>
         <ul class="submenu collapse">
           <li><a href="javascript:void(0);" onclick="loadContent('output')" class="nav-link" href="#">Output</a></li>
-          <li><a class="nav-link" href="#">JS DOM</a></li>
+          <li><a href="javascript:void(0);" onclick="loadContent('dom')" class="nav-link" href="#">DOM</a></li>
         </ul>
       </li>
       <li class="nav-item has-submenu">
         <a class="nav-link" href="#">JS Tutorial<i class="bx bx-caret-down"></i></a>
         <ul class="submenu collapse">
-          <li><a href="javascript:void(0);" onclick="loadContent('output')" class="nav-link" href="#">JS Output</a></li>
+          <li><a href="javascript:void(0);" onclick="loadContent('dom')" class="nav-link" href="#">JS Output</a></li>
           <li><a class="nav-link" href="#">JS DOM</a></li>
         </ul>
       </li>
@@ -47,9 +54,12 @@
   <div class="p-1 my-container active-cont">
     <!-- //@ TOP NAV -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mb-4" aria-label="Twelfth navbar example" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mb-4" aria-label="Twelfth navbar example"
+      style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <div class="container-fluid">
-        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false"
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
@@ -65,7 +75,7 @@
     </nav>
     <!-- //@ CONTENT -->
     <div class="container" id="container">
-      
+
     </div>
   </div>
 
@@ -77,16 +87,16 @@
   <script>
     function loadContent(param) {
       var xhr = new XMLHttpRequest();
-      var ul  = document.getElementById("breadcrumb");
-      var li  = document.createElement("li");
+      var ul = document.getElementById("breadcrumb");
+      var li = document.createElement("li");
       xhr.open('POST', 'view/' + param + '.html');
       xhr.onload = function () {
         document.getElementById("container").innerHTML = this.response;
       };
       xhr.send();
-      if(param == 'index'){
+      if (param == 'index') {
         ul.removeChild(ul.childNodes[2])
-      }else{
+      } else {
         li.appendChild(document.createTextNode(param));
         li.setAttribute("class", "breadcrumb-item active");
         ul.appendChild(li);
